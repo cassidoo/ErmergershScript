@@ -1,0 +1,15 @@
+{
+	"name": "ermergershscript",
+	"version": "1.0.0",
+	"description": "ermergersh lerk erts jerverscrerpt",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cassidoo/ErmergershScript.git"
+	},
+	"keywords": ["ermergersh ermergerd"],
+	"author": "Cassidy Williams <cassidoo@outlook.com>",
+	"license": "none",
+	"dependencies": "none",
+	"bin": "ermergershscript.js"
+}
