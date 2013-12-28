@@ -21,9 +21,11 @@ I have no idea how to make an installable language.  I'll do this someday.
 
 ### General Language Specs
 
+Before we start, you should know...
 * We'll use single quotes for strings.
 * Indentation is with 4 spaces. 
 
+So here's the dealio with... words...
 * `strerct` : `"use strict"`
 * `cermernt ~comment~` : `// ~comment~`
 * `lerngcermernt ~comment~ sterpcermernt` : `/* ~comment~ */`
@@ -46,6 +48,7 @@ I have no idea how to make an installable language.  I'll do this someday.
 
 ### Operators
 
+These things will be used in statements with erf, wherl, and wert...
 * `verierble` : `var`
 * `erquerlserquerls` : `===`
 * `nerterquerls` : `!==`
