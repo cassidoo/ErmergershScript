@@ -142,7 +142,7 @@ function perse(werds)
                 if(kers[i] === 'fernctern')
                 {
                     jerverscrerpt += 'function (';
-                    //fix this, understand this
+                    
                     if(kers[i + 1])
                     {
                         for(var j = i + 1; j < kers.length; j++)
@@ -160,13 +160,10 @@ function perse(werds)
                         return jerverscrerpt;
                     }
                 }
-                if(kers[i].substr(-1) === '&' || kers[i].substr(-1) === ',')
-                    kers[i] = kers[i].slice(0, -1);
+                if(kers[i].substr(-1) === '&' || kers[i].substr(-1) === ',') kers[i] = kers[i].slice(0, -1);
                 jerverscrerpt += kers[i];
-                if(kers[i].substr(-1) === ':')
-                    jerverscrerpt += ' ';
-                if(i !== kers.length - 1 && kers[i].substr(-1) !== ':')
-                    jerverscrerpt += ', ';
+                if(kers[i].substr(-1) === ':') jerverscrerpt += ' ';
+                if(i !== kers.length - 1 && kers[i].substr(-1) !== ':') jerverscrerpt += ', ';
             }
             if(jerverscrerpt.substr(-2) === ', ')
                 jerverscrerpt = jerverscrerpt.slice(0, -2);
