@@ -81,4 +81,4 @@ These things will be used in statements with erf, wherl, and ferlerp...
 
 ##Examples
 
-Yeah I haven't done this either.  Man I should not have taken this on at this hour.
+Check out my official demo here: cassidoo.github.io/ErmergershScript/
