@@ -9,14 +9,21 @@ function perse(werds)
     var kers = werds.match(/'[^']+'|\S+/g);
     var verlerdkers =
     {
+        'sterp' : '; ',
+        'plersplers' : '++',
+        'mernersmerners' : '--',
+        'plers' :' + ',
+        'merners' :' - ',
+        'terms' :' * ',
+        'derverd' :' / ',
         'erquerlserquerls' : ' === ',
         'nerterquerls' : ' !== ',
         'sermercerlern' : '; ',
         'erquerls' : ' = ',
-        'erdd' : ' += ',
-        'merners' : ' -= ',
-        'merterpler' : ' *= ',
-        'derverde' : ' /= ',
+        'plerserquerls' : ' += ',
+        'mernerserquerls' : ' -= ',
+        'termserquerls' : ' *= ',
+        'derverderquerls' : ' /= ',
         'verierble' : ' var ',
         'lerssthern' : ' < ',
         'grerterthern' : ' > ',
@@ -26,7 +33,7 @@ function perse(werds)
         'er' : ' || ',
         'nert' : ' ! '
     };
-    var verlerd = ['fernctern', 'ernd', 'ernd&', 'erxercerte', '.erxercerte', 'der', 'ver', 'cermernt', 'lerngcermernt', 'sterpcermernt', 'erf', 'erlse', 'wherl', 'wert', 'rerquer', 'strerct'];
+    var verlerd = ['fernctern', 'ernd', 'ernd&', 'erxercerte', '.erxercerte', 'der', 'ver', 'cermernt', 'lerngcermernt', 'sterpcermernt', 'erf', 'erlse', 'wherl', 'wert', 'rerquer', 'strerct', 'ferlerp'];
 
     var jerverscrerpt = '';
 
@@ -81,11 +88,11 @@ function perse(werds)
                 if(i !== kers.length - 1)
                     jerverscrerpt += ', ';
             }
-            jerverscrerpt += ') \n { \n';
+            jerverscrerpt += ') \n{ \n';
         }
         else
         {
-            jerverscrerpt += ' () \n { \n';
+            jerverscrerpt += ' () \n{ \n';
         }
     }
 
@@ -115,7 +122,7 @@ function perse(werds)
         }
     }
 
-    // execute function
+    // executing a function
     if(kers[0] === 'erxercerte' || kers[0] === '.erxercerte' || kers[0] === 'der' || kers[1] === 'der')
     {
         if(kers[1] === 'der')
@@ -123,18 +130,19 @@ function perse(werds)
         if(kers[0].charAt(0) === '.' || kers[0] === 'der')
             jerverscrerpt += '.';
         if(kers[1] === 'console.lerg' || kers[1] === 'lerg')
-            kers[1] = kers[1].slice(0, -1);
+            kers[1] = 'console.log';
         if(kers[2] === 'hers')
         {
             jerverscrerpt += kers[1] + '(';
-            dupe = kers.slice(0);
+            thingamagig = kers.slice(0);
             for(var i = 3; i < kers.length; i++)
             {
                 if(kers[i] === ',' || kers[i] === '&')
                     continue;
-                if(kers[i] === 'fer')
+                if(kers[i] === 'fernctern')
                 {
                     jerverscrerpt += 'function (';
+                    //fix this, understand this
                     if(kers[i + 1])
                     {
                         for(var j = i + 1; j < kers.length; j++)
@@ -143,12 +151,12 @@ function perse(werds)
                             if(j !== kers.length - 1)
                                 jerverscrerpt += ', ';
                         }
-                        jerverscrerpt += ') \n {\n';
+                        jerverscrerpt += ') \n{\n';
                         return jerverscrerpt;
                     }
                     else
                     {
-                        jerverscrerpt += ') \n {\n';
+                        jerverscrerpt += ') \n{\n';
                         return jerverscrerpt;
                     }
                 }
@@ -162,11 +170,14 @@ function perse(werds)
             }
             if(jerverscrerpt.substr(-2) === ', ')
                 jerverscrerpt = jerverscrerpt.slice(0, -2);
+
             if(jerverscrerpt.substr(-3) === ', ]' || jerverscrerpt.substr(-3) === ', }')
                 jerverscrerpt = jerverscrerpt.replace(jerverscrerpt.substr(-3), jerverscrerpt.substr(-1));
-            if(dupe[kers.length - 1].slice(-1) === '&')
+
+            if(thingamagig[kers.length - 1].slice(-1) === '&')
                 jerverscrerpt += ')\n';
-            else
+            
+else
                 jerverscrerpt += ');\n';
         }
         else
@@ -261,6 +272,71 @@ function perse(werds)
             jerverscrerpt += kers[2] + ';\n';
         }
     }
+    
+    /*
+    CONDITIONALS
+    */
+
+    // if
+    if(kers[0] === 'erf')
+    {
+        jerverscrerpt += 'if(';
+        for(var i = 1; i < kers.length; i++)
+        {
+            var persed = keyperser(kers[i]);
+            if(persed)
+                continue;
+            jerverscrerpt += kers[i];
+        }
+        jerverscrerpt += ') \n{\n';
+    }
+
+    // else
+    if(kers[0] === 'erlse')
+    {
+        if(kers[1] === 'erf')
+        {
+            jerverscrerpt += '} \nelse if(';
+            for(var i = 2; i < kers.length; i++)
+            {
+                var persed = keyperser(kers[i]);
+                if(persed)
+                    continue;
+                jerverscrerpt += kers[i];
+            }
+            jerverscrerpt += ') \n{\n';
+        }
+        else
+        {
+            jerverscrerpt += '}\nelse {\n';
+        }
+    }
+
+    /*
+    LOOPS
+    */
+
+    // while and for
+    if(kers[0] === 'wherl' || kers[0] === 'ferlerp')
+    {
+        if(kers[0] === 'wherl')
+            jerverscrerpt += 'while(';
+        else if(kers[0] === 'ferlerp')
+            jerverscrerpt += 'for(';
+            
+        for(var i = 1; i < kers.length; i++)
+        {
+            var persed = keyperser(kers[i]);
+            if(persed)
+                continue;
+            jerverscrerpt += kers[i];
+        }
+        jerverscrerpt += ') \n{\n';
+    }
+
+    /*
+    COMMENTS
+    */
 
     // single-line comment
     if(kers[0] === 'cermernt')
@@ -295,69 +371,6 @@ function perse(werds)
             jerverscrerpt += kers[i] + ' ';
         }
         jerverscrerpt += '\n';
-    }
-
-    // if
-    if(kers[0] === 'erf')
-    {
-        jerverscrerpt += 'if(';
-        for(var i = 1; i < kers.length; i++)
-        {
-            var persed = keyperser(kers[i]);
-            if(persed)
-                continue;
-            jerverscrerpt += kers[i] + ' ';
-        }
-        jerverscrerpt += ') \n {\n';
-    }
-
-    // else
-    if(kers[0] === 'erlse')
-    {
-        if(kers[1] === 'erf')
-        {
-            jerverscrerpt += '} \n else if(';
-            for(var i = 2; i < kers.length; i++)
-            {
-                var persed = keyperser(kers[i]);
-                if(persed)
-                    continue;
-                jerverscrerpt += kers[i] + ' ';
-            }
-            jerverscrerpt += ') \n {\n';
-        }
-        else
-        {
-            jerverscrerpt += '} \n else {\n';
-        }
-    }
-
-    // while
-    if(kers[0] === 'wherl')
-    {
-        jerverscrerpt += 'while(';
-        for(var i = 1; i < kers.length; i++)
-        {
-            var persed = keyperser(kers[i]);
-            if(persed)
-                continue;
-            jerverscrerpt += kers[i] + ' ';
-        }
-        jerverscrerpt += ') \n {\n';
-    }
-
-    // for
-    if(kers[0] === 'fer')
-    {
-        jerverscrerpt += 'for(';
-        for(var i = 1; i < kers.length; i++)
-        {
-            var persed = keyperser(kers[i]);
-            if(persed)
-                continue;
-            jerverscrerpt += kers[i] + ' ';
-        }
-        jerverscrerpt += ') \n {\n';
     }
 
     return jerverscrerpt;

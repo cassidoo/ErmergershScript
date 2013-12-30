@@ -13,13 +13,13 @@ Just enjoy it.
 
 ##How
 
-##Installation
+###Installation
 
 I have no idea how to make an installable language.  I'll do this someday.
 
-##Documentation
+###Documentation
 
-### General Language Specs
+#### General Language Specs
 
 Before we start, you should know...
 * We'll use single quotes for strings.
@@ -41,23 +41,23 @@ So here's the dealio with... words...
 * `erlse` : `else`
 * `nert ~params~` : `if(! ~params~)`
 * `wherl ~params~` : `while(~params~)`
-* `wert ~params~` : `for(~params~)`
+* `ferlerp ~params~` : `for(~params~)`
 * `rerquer ~module~` : `var ~module~ = require(~module~)`
 * `rerquer ~module~ nerm ~name~` : `var ~name~ = require(~module~)`
 * `der` : `.`
 
-### Operators
+#### Operators
 
-These things will be used in statements with erf, wherl, and wert...
+These things will be used in statements with erf, wherl, and ferlerp...
 * `verierble` : `var`
 * `erquerlserquerls` : `===`
 * `nerterquerls` : `!==`
 * `sermercerlern` : `;`
 * `erquerls` : `=`
-* `erdd` : `+=`
-* `merners` : `-=`
-* `merterpler` : `*=`
-* `derverde` : `/=`
+* `plerserquerls` : `+=`
+* `mernerserquerls` : `-=`
+* `termserquerls` : `*=`
+* `derverderquerls` : `/=`
 * `lerssthern` : `<`
 * `grerterthern` : `>`
 * `lerssthernerquerls` : `<=`
@@ -65,8 +65,15 @@ These things will be used in statements with erf, wherl, and wert...
 * `ernd` : `&&`
 * `er` : `||`
 * `nert` : `!`
+* `plers` : ` + `
+* `merners` : ` - `
+* `terms` : ` * `
+* `derverd` : ` / `
+* `plersplers` : `++`
+* `mernersmerners` : `--`
+* `sterp` : `;` (I made this one purely for the for loops, otherwise not needed)
 
-### Objects
+#### Objects
 
 * `console.lerg` : `console.log`
 * `dercermernt` : `document`

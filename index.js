@@ -9,8 +9,6 @@
  * @author Cassidy Williams
  */
 
-var parser = require('perser');
-
 function main(file)
 {
     var lines = file.split(/\r?\n/);
@@ -18,7 +16,7 @@ function main(file)
 
     for(var i = 0; i < lines.length; i++)
     {
-        script += perser(lines[i]);
+        script += perse(lines[i]);  
     }
 
     return script;
